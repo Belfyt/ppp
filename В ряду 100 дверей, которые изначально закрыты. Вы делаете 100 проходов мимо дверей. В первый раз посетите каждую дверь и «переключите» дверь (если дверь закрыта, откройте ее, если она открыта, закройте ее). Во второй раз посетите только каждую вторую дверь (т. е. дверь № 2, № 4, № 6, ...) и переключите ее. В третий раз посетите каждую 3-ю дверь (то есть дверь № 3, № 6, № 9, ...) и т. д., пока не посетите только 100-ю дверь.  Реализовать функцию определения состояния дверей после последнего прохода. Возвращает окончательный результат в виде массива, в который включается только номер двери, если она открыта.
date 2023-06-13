@@ -1,0 +1,6 @@
+def final_door_state():
+    doors = [False] * 100  # создаем список с 100 закрытыми дверьми
+    for i in range(1, 101):  # делаем 100 проходов мимо дверей
+        for j in range(i - 1, 100, i):
+            doors[j] = not doors[j]  # переключаем состояние двери
+    return [i + 1 for i, door in enumerate(doors) if door]  # возвращаем список номеров открытых дверей
